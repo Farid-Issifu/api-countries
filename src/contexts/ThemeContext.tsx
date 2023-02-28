@@ -1,15 +1,15 @@
 import { createContext, useContext, useReducer } from "react";
 
-interface State { //terceiro
+interface State {
     theme: string
 }
 
-interface Actions { //quinto
+interface Actions { 
     type: themeActions,
     payload: any
 }
 
-interface Provider { //oitavo
+interface Provider { 
     children: JSX.Element
 }
 
@@ -21,15 +21,15 @@ interface ContextType {
 
 const initialData: State = {
     theme: 'dark'
-} //segundo
+}
 
-const ThemeContext = createContext<ContextType | undefined>(undefined)  //primeiro
+const ThemeContext = createContext<ContextType | undefined>(undefined)
 
 export enum themeActions {
     setTheme,
-} //quarto
+}
 
-const reducer = (state: State, action: Actions) => { //sexto
+const reducer = (state: State, action: Actions) => {
     switch(action.type) {
         case themeActions.setTheme:
             return {...state, theme: action.payload}
@@ -37,7 +37,7 @@ const reducer = (state: State, action: Actions) => { //sexto
     }
 }
 
-export const ThemeProvider = ({children}: Provider) => { //setimo
+export const ThemeProvider = ({children}: Provider) => {
     const [state, dispatch] = useReducer(reducer, initialData);
     const value = {state, dispatch}
 
@@ -48,7 +48,7 @@ export const ThemeProvider = ({children}: Provider) => { //setimo
     )
 }
 
-export const useForm = () => { //nono
+export const useForm = () => {
     const context = useContext(ThemeContext)
     if(context === undefined) {
         throw new Error('useForm needs to be used inside the ThemeProvider')

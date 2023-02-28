@@ -19,7 +19,7 @@ export const SingleCountry = ({
     const { state } = useForm()
     return (
         <C.CountryData theme={state.theme}>
-            <img src={flag} alt={`Bandeira do País: ${name}`} />
+            <img src={flag} alt={`country flag: ${name}`} />
             <div className='data--area'>
                 <h1>{name}</h1>
                 <div className='data--firstArea'>
