@@ -44,7 +44,7 @@ export const Countries = () => {
             />
             <div className='countries'>
                 {loading &&
-                    <div className='loading'>Carregando...</div>
+                    <div className='loading'>Loading...</div>
                 }
                 {!loading &&
                     pagCountries.map((item) => (
